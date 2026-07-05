@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NJ Beauty Store</title>
+  <style>
+    body {
+      background-color: #FAF8F4;
+      font-family: Georgia, serif;
+      color: #1A1A1A;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    p.tagline {
+      text-align: center;
+      color: #8A8378;
+      font-style: italic;
+    }
+
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    nav button {
+      font-size: 13px;
+      padding: 8px 14px;
+      margin: 4px;
+      border: 1px solid #D4AF37;
+      border-radius: 3px;
+      background: white;
+      color: #1A1A1A;
+      cursor: pointer;
+    }
+
+    nav button.active {
+      background: #D4AF37;
+      color: white;
+    }
+
+    section {
+      background: rgb(236, 235, 232);
+      border: 1px solid #E5DFD3;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .price {
+      color: #B8902E;
+      font-weight: bold;
+    }
+
+    .order-link {
+      display: inline-block;
+      margin-top: 8px;
+      background: #25D366;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NJ BEAUTY STORE</h1>
+  <p class="tagline">Affordable Beauty &amp; Imported Goods</p>
+
+  <nav>
+    <button onclick="document.getElementById('perfume').scrollIntoView(); setActiveButton(this)">Perfume</button>
+    <button onclick="document.getElementById('accessories').scrollIntoView(); setActiveButton(this)">Accessories</button>
+    <button onclick="document.getElementById('hair-makeup').scrollIntoView(); setActiveButton(this)">Hair & Makeup</button>
+    <button onclick="document.getElementById('skincare').scrollIntoView(); setActiveButton(this)">Skincare</button>
+    <button onclick="document.getElementById('other').scrollIntoView(); setActiveButton(this)">Wellness & Home</button>
+  </nav>
+
+  <section id="perfume">
+    <h2>Perfume</h2>
+    <img src="matelo.jpeg" alt="Matelot Lovendy perfume">
+    <p>Matelot Lovendy - Small - <span class="price">4,500 FCFA</span></p>
+    <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Matelo%20Eau%20de%20Parfum%20-%204500%20FCFA" target="_blank">Order on WhatsApp</a>
+  </section>
+
+  <section id="accessories">
+    <h2>Accessories</h2>
+   <img src="stanley.jpeg" alt="Stanley Cup">
+    <p>Stanley Cup - Regular - <span class="price">8,500 FCFA</span></p>
+    <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Stanley%20Cup%20-%208500%20FCFA" target="_blank">Order on WhatsApp</a>
+  </section>
+
+  <section id="hair-makeup">
+    <h2>Hair &amp; Makeup</h2>
+   <img src="pinceaux.jpeg" alt="32-Piece Brush Set">
+    <p>Pinceaux - 32-Piece Brush Set - <span class="price">10,500 FCFA</span></p>
+    <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%2032-Piece%20Brush%20Set%20-%2010500%20FCFA" target="_blank">Order on WhatsApp</a>
+  </section>
+
+  <section id="skincare">
+    <h2>Skincare</h2>
+    <img scr="mousse.jpeg" alt="Ever Rosa Cleansing Mousse">
+<img src="mousse2.jpeg" alt="Ever Rosa Avocado Mousse">
+    <p>Mousse Pour Visage - <span class="price">3,500 FCFA</span></p>
+    <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Mousse%20Pour%20Visage%20-%203500%20FCFA" target="_blank">Order on WhatsApp</a>
+  </section>
+
+  <section id="other">
+    <h2>Wellness &amp; Home</h2>
+   <img src="moulinex.jpeg" alt="Moulinex Portable Blender">    <p>Moulinex Portable Blender - <span class="price">8,500 FCFA</span></p>
+    <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Moulinex%20Portable%20Blender%20-%208500%20FCFA" target="_blank">Order on WhatsApp</a>
+  </section>
+
+  <script>
+    function setActiveButton(clickedButton) {
+      var allButtons = document.querySelectorAll('nav button');
+      allButtons.forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      clickedButton.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>ss
