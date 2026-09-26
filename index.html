@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NJ Beauty Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, serif;
+      color: #1A1A1A;
+      background-color: #FAF8F4;
+    }
+
+    .welcome {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fff0f5 0%, #fdf8f0 50%, #fff5f0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome::before {
+      content: "👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎 👗 ✦ 💄 🌸 👠 🌹 👜 💎";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      min-height: 100%;
+      font-size: 36px;
+      line-height: 2;
+      letter-spacing: 12px;
+      word-spacing: 12px;
+      opacity: 0.07;
+      word-break: break-all;
+      display: block;
+      z-index: 0;
+    }
+
+    .welcome > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .welcome img.logo {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    .welcome h1 {
+      font-size: 32px;
+      letter-spacing: 3px;
+      color: #1A1A1A;
+      margin-bottom: 8px;
+    }
+
+    .welcome .welcome-tag {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: #D4AF37;
+      margin-bottom: 12px;
+    }
+
+    .welcome p {
+      font-size: 14px;
+      color: #9a7c7c;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .welcome .contact-bar {
+      font-size: 12px;
+      color: #B8902E;
+      margin-bottom: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .welcome .shop-btn {
+      background: #1A1A1A;
+      color: #D4AF37;
+      border: none;
+      padding: 14px 36px;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      border-radius: 2px;
+      font-family: Arial, sans-serif;
+    }
+
+    .store {
+      display: none;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .store-header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .store-header img.logo {
+      width: 120px;
+      margin-bottom: 8px;
+    }
+
+    .store-header h1 {
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+
+    .store-header p {
+      font-size: 13px;
+      color: #8A8378;
+      font-style: italic;
+    }
+
+    nav {
+      text-align: center;
+      margin: 16px 0;
+    }
+
+    nav button {
+      font-size: 12px;
+      padding: 8px 12px;
+      margin: 3px;
+      border: 1px solid #D4AF37;
+      border-radius: 3px;
+      background: white;
+      color: #1A1A1A;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+
+    nav button.active {
+      background: #D4AF37;
+      color: white;
+    }
+
+    section {
+      background: rgb(236, 235, 232);
+      border: 1px solid #E5DFD3;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    section h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 0.5px solid #E5DFD3;
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .product img:hover {
+      opacity: 0.85;
+    }
+
+    .product-name {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .product-desc {
+      font-size: 12px;
+      color: #8A8378;
+      font-style: italic;
+      margin-bottom: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    .price {
+      color: #B8902E;
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .order-link {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 6px;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      background: #1A1A1A;
+      color: #888;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      font-family: Arial, sans-serif;
+      margin-top: 30px;
+    }
+
+    footer span {
+      color: #D4AF37;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome" id="welcomePage">
+    <img class="logo" src="logo.png" alt="NJ Beauty Store Logo">
+    <div class="welcome-tag">✦ WELCOME TO ✦</div>
+    <h1>NJ BEAUTY STORE</h1>
+    <p>Beauty that shines, confidence that stays.</p>
+    <p>Your one-stop shop for all your beauty needs.</p>
+    <div class="contact-bar">📱 +237 650 323 986 &nbsp;|&nbsp; 📍 Yaoundé, Cameroun</div>
+    <button class="shop-btn" onclick="enterStore()">SHOP NOW</button>
+  </div>
+
+  <div class="store" id="storePage">
+   <div style="background: #ffb6c1; color: #1a1a1a; text-align: center; padding: 10px 16px; font-size: 13px; font-family: Arial, sans-serif; font-weight: 600; letter-spacing: 0.05em;">
+      🌸 We're 1 year old! Every order gets a surprise gift · Sept 10 - Oct 10 🎀
+    </div>
+    <div class="store-header">
+      <img class="logo" src="logo.png" alt="NJ Beauty Store Logo">
+      <h1>NJ BEAUTY STORE</h1>
+      <p>Affordable Beauty &amp; Imported Goods</p>
+    </div>
+
+    <nav>
+      <button onclick="showCategory('perfume'); this.classList.add('active')" class="active">Perfume</button>
+      <button onclick="showCategory('accessories'); this.classList.add('active')">Accessories</button>
+      <button onclick="showCategory('hair-makeup'); this.classList.add('active')">Hair & Makeup</button>
+      <button onclick="showCategory('skincare'); this.classList.add('active')">Skincare</button>
+      <button onclick="showCategory('other'); this.classList.add('active')">Wellness & Home</button>
+    </nav>
+
+       <section id="perfume">
+      <h2>Perfume</h2>
+      <div class="product">
+        <img src="matelo.jpeg" alt="Matelot Lovendy" onclick="openLightbox(this.src)">
+        <div class="product-name">Matelot Lovendy - Small</div>
+        <div class="product-desc">Long-lasting eau de parfum, 50ml. Fresh and elegant scent.</div>
+        <div class="price">4,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Matelo%20Lovendy%20-%204500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <img src="parfum .jpeg" alt="Eau de Parfum" onclick="openLightbox(this.src)">
+        <div class="product-name">Eau de Parfum</div>
+        <div class="product-desc">Elegant everyday scent. Available in multiple fragrances.</div>
+        <div class="price">2,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Eau%20de%20Parfum%20-%202500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <div class="product-name">Crayon de Parfum</div>
+        <div class="product-desc">Solid perfume stick. Easy to carry, long-lasting fragrance.</div>
+        <div class="price">1,000 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Crayon%20de%20Parfum%20-%201000%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <div class="product-name">Eau de Cologne</div>
+        <div class="product-desc">Light and fresh cologne, perfect for everyday wear.</div>
+        <div class="price">4,000 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Eau%20de%20Cologne%20-%204000%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+    </section>
+    <section id="accessories">
+      <h2>Accessories</h2>
+      <div class="product">
+        <img src="stanley.jpeg" alt="Stanley Cup" onclick="openLightbox(this.src)">
+        <div class="product-name">Stanley Cup - Regular</div>
+        <div class="product-desc">Insulated tumbler with straw. Keeps drinks cold for hours.</div>
+        <div class="price">8,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Stanley%20Cup%20-%208500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="hair-makeup">
+      <h2>Hair &amp; Makeup</h2>
+      <div class="product">
+        <img src="pinceaux.jpeg" alt="32-Piece Brush Set" onclick="openLightbox(this.src)">
+        <div class="product-name">Pinceaux - 32-Piece Brush Set</div>
+        <div class="product-desc">Professional makeup brushes in a gold case. Perfect for all looks.</div>
+        <div class="price">10,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%2032-Piece%20Brush%20Set%20-%2010500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="skincare">
+      <h2>Skincare</h2>
+      <div class="product">
+        <img src="mousse2.jpeg" alt="Ever Rosa Avocado Mousse" onclick="openLightbox(this.src)">
+        <div class="product-name">Ever Rosa - Avocado Amino Acid Mousse</div>
+        <div class="product-desc">100% natural. Gentle and clean. Rich in vitamins, moisturizes deeply.</div>
+        <div class="price">3,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20Ever%20Rosa%20Avocado%20Mousse%20-%203500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <img src="eye_lip_mask.webp" alt="Eye & Lip Mask" onclick="openLightbox(this.src)">
+        <div class="product-name">Collagen Eye &amp; Lip Mask</div>
+        <div class="product-desc">Hydrating collagen patches for eyes and lips. Reduces dark circles and fine lines.</div>
+        <div class="price">500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Eye%20%26%20Lip%20Mask%20-%20500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <img src="face_mask.webp" alt="Face Mask" onclick="openLightbox(this.src)">
+        <div class="product-name">Botany &amp; Fruits Face Mask</div>
+        <div class="product-desc">Nourishing sheet mask infused with natural fruit and plant extracts.</div>
+        <div class="price">500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Face%20Mask%20-%20500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <img src="vitamin_c_soap.jpg" alt="Vitamin C Soap" onclick="openLightbox(this.src)">
+        <div class="product-name">Disaar Vitamin C Whitening Soap</div>
+        <div class="product-desc">Brightening hand-made soap with hyaluronic acid. Deep cleansing, glow &amp; moisture.</div>
+        <div class="price">3,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Vitamin%20C%20Soap%20-%203500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="other">
+      <h2>Wellness &amp; Home</h2>
+      <div class="product">
+        <img src="moulinex.jpeg" alt="Portable Juicing Cup" onclick="openLightbox(this.src)">
+        <div class="product-name">Portable Juicing Cup</div>
+        <div class="product-desc">Rechargeable portable blender. Make smoothies anywhere, anytime.</div>
+        <div class="price">8,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Portable%20Juicing%20Cup%20-%208500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <img src="micro cravate.jpeg" alt="Wireless Lavalier Microphone" onclick="openLightbox(this.src)">
+        <div class="product-name">Micro-Cravate Sans Fil</div>
+        <div class="product-desc">Wireless lavalier microphone set. Great for videos and content creation.</div>
+        <div class="price">8,500 FCFA</div>
+        <a class="order-link" href="https://wa.me/237650323986?text=Hello%2C%20I%20would%20like%20to%20order%20the%20Micro-Cravate%20-%208500%20FCFA" target="_blank">Order on WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>NJ BEAUTY STORE</span> &nbsp;|&nbsp; 📱 +237 650 323 986 &nbsp;|&nbsp; 📍 Yaoundé, Cameroun<br>
+      <span>glorymaya.github.io/nj-beauty-store</span>
+    </footer>
+
+  </div>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">✕</span>
+    <img id="lightbox-img" src="" alt="Product">
+  </div>
+
+  <script>
+    function enterStore() {
+      document.getElementById('welcomePage').style.display = 'none';
+      document.getElementById('storePage').style.display = 'block';
+      showCategory('perfume');
+    }
+
+    function showCategory(categoryId) {
+      document.querySelectorAll('section').forEach(function(s) {
+        s.style.display = 'none';
+      });
+      document.getElementById(categoryId).style.display = 'block';
+      document.querySelectorAll('nav button').forEach(function(b) {
+        b.classList.remove('active');
+      });
+    }
+
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    showCategory('perfume');
+  </script>
+
+</body>
+</html>
